@@ -1,0 +1,10 @@
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.csproj.AssemblyReference.cache
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.Properties.Resources.resources
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.csproj.GenerateResource.cache
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.csproj.CoreCompileInputs.cache
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\bin\Debug\Client_Form.exe.config
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\bin\Debug\Client_Form.exe
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\bin\Debug\Client_Form.pdb
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.exe
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.pdb
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Client_Form\obj\Debug\Client_Form.Cliente_Form.resources
