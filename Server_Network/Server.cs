@@ -25,7 +25,7 @@ namespace Server_Network
                 {
                     TcpClient clientSocket = server.AcceptTcpClient();
                     Console.WriteLine($"Accepted connection from {((IPEndPoint)clientSocket.Client.RemoteEndPoint).Address}:{((IPEndPoint)clientSocket.Client.RemoteEndPoint).Port}");
-                    Thread clientThread = new Thread(() => HandleClient(clientSocket));
+                    Thread clientThread = new Thread(() => HandleClientHttp(clientSocket));
                     clientThread.Start();
                 }
             }
@@ -38,7 +38,85 @@ namespace Server_Network
                 server.Stop();
             }
         }
-    
+
+        private static void HandleClientHttp(TcpClient clientSocket)
+        {
+            try
+            {
+                NetworkStream networkStream = clientSocket.GetStream();
+                networkStream.ReadTimeout = 10000;
+
+                byte[] receiveBuffer = new byte[10240];
+                while (true)
+                {
+                    try
+                    {
+                        int bytesRead = networkStream.Read(receiveBuffer, 0, receiveBuffer.Length);
+                        string incomingMessage = Encoding.UTF8.GetString(receiveBuffer, 0, bytesRead);
+                        if (bytesRead == 0)
+                            break;
+                        BrowserAnswer(clientSocket, networkStream, incomingMessage);
+
+                    }
+                    catch (IOException ex)
+                    {
+                        Console.WriteLine($"Erro de leitura: {ex.Message}");
+                        break;
+                    }
+                }
+                clientSocket.Close();
+                Console.WriteLine("Conexão Encerrada");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao enviar: {ex.Message}");
+            }
+}
+
+        private static void BrowserAnswer(TcpClient clientSocket, NetworkStream networkStream, string incomingMessage)
+        {
+            Console.WriteLine($"Received: {incomingMessage}");
+
+            if (incomingMessage.Contains("paginahtml"))
+            {
+                var answer = Encoding.UTF8.GetBytes(
+                    "HTTP/1.0 200 OK" + Environment.NewLine
+                    + "Content-Length: " + "<h1>Hello World</h1>".Length + Environment.NewLine
+                    + "Content-Type: " + "text/html" + Environment.NewLine
+                    + "Connection: keep-alive" + Environment.NewLine
+                    + Environment.NewLine
+                    + "<h1>Hello World</h1>"
+                    + Environment.NewLine);
+                networkStream.Write(answer, 0, answer.Length);
+            }
+            else if (incomingMessage.Contains(".jpg"))
+            {
+                byte[] imageData = File.ReadAllBytes("chuck.jpg"); 
+
+                var answer = Encoding.UTF8.GetBytes(
+                    "HTTP/1.0 200 OK" + Environment.NewLine
+                    + "Content-Length: " + imageData.Length + Environment.NewLine
+                    + "Content-Type: image/jpeg" + Environment.NewLine  
+                    + "Connection: keep-alive" + Environment.NewLine
+                    + Environment.NewLine);
+
+                networkStream.Write(answer, 0, answer.Length);
+                networkStream.Write(imageData, 0, imageData.Length);
+            }
+            else
+            {
+                var answer = Encoding.UTF8.GetBytes(
+                    $"HTTP/1.0 404 Not Found" + Environment.NewLine
+                    + "Content-Length: " + "<h1>error404</h1>".Length + Environment.NewLine
+                    + "Content-Type: text/html" + Environment.NewLine
+                    + "Connection: close" + Environment.NewLine
+                    + Environment.NewLine
+                    + "<h1>error404</h1>"
+                    + Environment.NewLine);
+                networkStream.Write(answer, 0, answer.Length);
+            }
+        }
+
         static void HandleClient(TcpClient clientSocket)
         {
             try
@@ -58,7 +136,7 @@ namespace Server_Network
 
                     string receivedData = Encoding.ASCII.GetString(receiveBuffer, 0, bytesRead);
                     Console.WriteLine($"Received: {receivedData}");
-                    VerifyContent(clientSocket,networkStream, receivedData);
+                    boolLoop = VerifyContent(clientSocket,networkStream, receivedData);
                 }
 
                 clientSocket.Close();
