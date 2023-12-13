@@ -5,3 +5,10 @@ C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Server_Netw
 C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Server_Network\obj\Debug\Server_Network.exe
 C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Server_Network\obj\Debug\Server_Network.pdb
 C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes\Server_Network\obj\Debug\Server_Network.csproj.AssemblyReference.cache
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\obj\Debug\Server_Network.csproj.AssemblyReference.cache
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\obj\Debug\Server_Network.csproj.CoreCompileInputs.cache
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\obj\Debug\Server_Network.exe
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\obj\Debug\Server_Network.pdb
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\bin\Debug\Server_Network.exe.config
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\bin\Debug\Server_Network.exe
+C:\Users\luish\OneDrive\Área de Trabalho\BSI-UTFPR\6oSemestre\Redes_UTFPR\Server_Network\bin\Debug\Server_Network.pdb
